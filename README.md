@@ -1,31 +1,6 @@
 ![image](https://github.com/ArnavAnand10/flipkart_clone/assets/97800361/221cf108-9001-4c28-8129-47161fd2e5fe)
 
 
-<br/>
-<p align="center">
-  <a href="https://github.com/ArnavAnand10/ flipkart_clone ">
-    <img src="" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">MERN Stack Flipkart Clone</h3>
-
-  <p align="center">
-    Complete Flipkart Clone using MERN Stack 🚀
-    <br/>
-    <br/>
-    <a href="https://github.com/ArnavAnand10/ flipkart_clone "><strong>Explore the docs »</strong></a>
-    <br/>
-    <br/>
-    <a href="https://github.com/ArnavAnand10/ flipkart_clone ">View Demo</a>
-    .
-    <a href="https://github.com/ArnavAnand10/ flipkart_clone /issues">Report Bug</a>
-    .
-    <a href="https://github.com/ArnavAnand10/ flipkart_clone /issues">Request Feature</a>
-  </p>
-</p>
-
-![Downloads](https://img.shields.io/github/downloads/ArnavAnand10/ flipkart_clone /total) ![Contributors](https://img.shields.io/github/contributors/ArnavAnand10/ flipkart_clone ?color=dark-green) ![Forks](https://img.shields.io/github/forks/ArnavAnand10/ flipkart_clone ?style=social) ![Stargazers](https://img.shields.io/github/stars/ArnavAnand10/ flipkart_clone ?style=social) ![Issues](https://img.shields.io/github/issues/ArnavAnand10/ flipkart_clone ) ![License](https://img.shields.io/github/license/ArnavAnand10/ flipkart_clone ) 
-
 ## Table Of Contents
 
 * [About the Project](#about-the-project)
@@ -42,7 +17,8 @@
 
 ## About The Project
 
-![Screen Shot](images/screenshot.png)
+![image](https://github.com/ArnavAnand10/flipkart_clone/assets/97800361/3a4eabde-29c6-4b49-b13a-ce7db6d50583)
+
 
 The Flipkart Clone project is a comprehensive e-commerce application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). It aims to replicate the functionality and user experience of the popular e-commerce platform Flipkart, incorporating essential features and technologies for a seamless shopping experience.
 
@@ -112,68 +88,61 @@ MongoDB: Install MongoDB to set up the database for the project.
 Clone the Repository
 Open your terminal or command prompt and run the following command to clone the Flipkart Clone repository:
 
-bash
+
 Copy code
-git clone https://github.com/your-username/flipkart-clone.git
+`[git clone https://github.com/ArnavAnand10/flipkart_clone.git`
 Install Dependencies
 Navigate to the project's frontend and backend directories and install the required dependencies:
 
-bash
+
 Copy code
 # Go to the frontend directory
-cd flipkart-clone/frontend
-npm install
+`cd flipkart-clone/client`
+`npm install`
 
 # Go to the backend directory
-cd ../backend
-npm install
+`cd ../server`
+`npm install`
 Configure the Project
 Configure MongoDB:
 
 Set up a MongoDB database.
-Update the connection string in backend/config/db.js with your MongoDB connection details.
+Update the connection string in server/.env with your MongoDB connection details.
 Configure Razor Pay:
 
 Obtain API keys from Razor Pay.
 Update the API keys in the appropriate files in the project.
 JWT Secret:
 
-Set a strong secret key for JWT in backend/config/jwt.js.
+Set a strong secret key for JWT in server/.env.
 Start the Application
 Start the Backend Server:
 
-bash
+
 Copy code
 # Go to the backend directory
-cd backend
-npm start
+`cd server`
+`npm start`
 Start the Frontend Application:
 
-bash
+
 Copy code
 # Go to the frontend directory
-cd frontend
-npm start
+`cd client`
+`npm start`
+
 Visit http://localhost:3000 in your web browser to access the Flipkart Clone application.
 
-### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-
-* npm
-
-```sh
-npm install npm@latest -g
-```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free API Key at Razor Pay.
 
 2. Clone the repo
 
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/ArnavAnand10/flipkart_clone.git
 ```
 
 3. Install NPM packages
@@ -182,10 +151,14 @@ git clone https://github.com/your_username_/Project-Name.git
 npm install
 ```
 
-4. Enter your API in `config.js`
+4. Enter your API in `.env`
 
 ```JS
-const API_KEY = 'ENTER YOUR API';
+const RAZOR_PAY_API_KEY = 'ENTER YOUR API';
+const RAZOR_PAY_API_SECRET;
+const REFRESH_SECRET_KEY;
+const ACCESS_SECRET_KEY;
+
 ```
 
 ## Usage
@@ -238,11 +211,10 @@ Responsive Design:
 
 
 
-## Roadmap
-
-See the [open issues](https://github.com/ArnavAnand10/ flipkart_clone /issues) for a list of proposed features (and known issues).
 
 ## Contributing
+All contributions are welcome.
+
 
 
 
@@ -280,10 +252,6 @@ SOFTWARE.
 ## Authors
 
 * **Arnav Anand** - *FY at VIT Pune* - [Arnav Anand](https://github.com/ArnavAnand10) - **
-* **** - ** - []() - **
 
-## Acknowledgements
 
-* []()
-* []()
-* []()
+
