@@ -80,7 +80,7 @@ Middleware components are strategically implemented to enhance the application's
 
 ## Getting Started
 
-Prerequisites
+## Prerequisites
 Make sure you have the following installed on your machine:
 
 Node.js: Make sure to install Node.js, which includes npm (Node Package Manager).
