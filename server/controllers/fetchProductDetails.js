@@ -10,7 +10,7 @@ const fetchProductDetails  = async (req,res)=>{
     try{
 
         const data = await Product.findOne({id:id});
-        console.log(data);
+      
         
         res.status(200).json(
             {productDetails:data}

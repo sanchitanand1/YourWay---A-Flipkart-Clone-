@@ -13,17 +13,22 @@ import { useNavigate } from "react-router-dom";
 
 export const Cart = () => {
     const navigator = useNavigate();
-    const dispatch = useDispatch();
     var sum = 0;
     var discount = 0;
     var amount = 0;
+
+
     const cartItems = useSelector(state => state.cart);
+    
     for(var i = 0 ; i<cartItems.length ;i++){
         sum = sum + cartItems[i].price.mrp;
         discount = discount + (cartItems[i].price.mrp - cartItems[i].price.cost);
        
 
     }
+    amount = sum-discount;
+
+    
   async function placeOrder(){
 
     if(!localStorage.getItem("userName")){
@@ -56,7 +61,7 @@ export const Cart = () => {
             console.log(`error ${e}`);
         }
     }
-    amount = sum-discount;
+   
   
     return (
         <>

@@ -14,8 +14,8 @@ export const DetailsPage = () => {
     const userName = localStorage.getItem("userName");
     const navigator = useNavigate();
     const date = new Date();
-    const dispatch  = useDispatch()
-    const [quantity,setQuantity]  = useState(1);
+    const dispatch = useDispatch()
+    const [quantity, setQuantity] = useState(1);
 
     const { id } = useParams();
     const [product, setPoduct] = useState();
@@ -39,8 +39,8 @@ export const DetailsPage = () => {
 
             // making post request to server for data;
             try {
-                const response =   await axios.post("http://localhost:8080/productDetails", data, config);
-                console.log(response);
+                const response = await axios.post("http://localhost:8080/productDetails", data, config);
+
                 setPoduct(response.data.productDetails);
 
 
@@ -55,46 +55,105 @@ export const DetailsPage = () => {
     }, [])
 
 
-    const addItemToCart = ()=>{
-         
-        dispatch(addToCart(id,quantity));
+    const addItemToCart = () => {
+
+        dispatch(addToCart(id, quantity));
         navigator("/cart")
 
 
     }
 
-    const buyProduct = async ()=>{
+    const buyProduct = async () => {
 
-        if(!localStorage.getItem("userName")){
+        if (!localStorage.getItem("userName")) {
             navigator("/login")
         }
 
-        try{
+        try {
             const config = {
-                headers:{
-                    "content-type":"application/json",
+                headers: {
+                    "content-type": "application/json",
                 }
             }
 
-            const data = {
+            const orderData = {
                 username: userName,
                 product: product,
 
             }
 
-            console.log(data);
-            const response = axios.post("http://localhost:8080/buyProduct",data,config)
-            let information = {
-                action : "https://securegw-stage.paytm.in/order/process",
-            }
+            const { data: { key } } = await axios.get("http://localhost:8080/getKey");
+
+            const { data } = await axios.post("http://localhost:8080/buyProduct", orderData, config);
+            const order = data.order;
+
+
+
+            var options = {
+                "key": key, // Enter the Key ID generated from the Dashboard
+                "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                "currency": "INR",
+                "name": "Arnav Ridham DEV",
+                "description": "Flipkart Clone Test Transaction",
+
+                "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                "handler": async function (response) {
+
+                    const config = {
+                        headers: {
+                            "content-type": "application/json"
+                        }
+                    }
+                    const razorpay_payment_id = (response.razorpay_payment_id);
+                    const razorpay_order_id = (response.razorpay_order_id);
+                    const razorpay_signature = (response.razorpay_signature)
+                    try {
+                        const data = await axios.post("http://localhost:8080/paymentVerification", {
+                            razorpay_order_id,
+                            razorpay_payment_id,
+                            razorpay_signature,
+                            product,
+                            userName,
+                        }, config)
+                        
+                        
+                        navigator("/orders");
+
+
+                    }
+                    catch (e) {
+
+                    }
+
+
+                },
+                "prefill": {
+                    "name": "Gaurav Kumar",
+                    "email": "gaurav.kumar@example.com",
+                    "contact": "9000090000"
+                },
+                "notes": {
+                    "address": "Razorpay Corporate Office"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+
+            const razor = new window.Razorpay(options);
+            razor.on('payment.failed', function (response) {
+                alert("payment failed, try again")
+            });
+            razor.open();
+           
 
         }
-    
 
-    catch(e){
-        console.log(e);
+
+        catch (e) {
+            console.log(e);
+        }
     }
-}
     return (
 
         <div className="details-container">
@@ -109,7 +168,7 @@ export const DetailsPage = () => {
                     }}>
                         <img src={product.detailUrl} alt="" />
                         <br /> <br />
-                        <Button onClick={()=>{
+                        <Button onClick={() => {
                             addItemToCart();
                         }}
                             startIcon={<ShoppingCartOutlinedIcon />}

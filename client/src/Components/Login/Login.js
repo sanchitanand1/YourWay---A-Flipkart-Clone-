@@ -41,7 +41,7 @@ const LoginSignup = () => {
 
         async  function  onLoginClick() {
 
-            console.log(loginValues);
+            
 
             if (!loginValues.email || !loginValues.password) {
                 showSnackBar("error", "All fields are required!")
@@ -161,7 +161,6 @@ const LoginSignup = () => {
         async function onFormSubmit() {
             setLoading(true)
 
-            console.log(formValues);
 
             var isValidated = true;
 

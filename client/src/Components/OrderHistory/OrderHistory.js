@@ -90,6 +90,7 @@ const OrderHistoryArea = ({ orders }) => {
 
             {
                 orders.map(order => {
+                    
 
                     return <div key={Math.random()} className="cart-item-container">
 
@@ -127,7 +128,7 @@ const OrderHistoryArea = ({ orders }) => {
 
                                 }} >&#8377; {order.price.cost}</p>
 
-                                <p>on {order.purchasedDate.slice(0,10)}</p>
+                                <p>on {order.purchasedDate}</p>
 
 
                             </div>

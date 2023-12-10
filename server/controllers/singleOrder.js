@@ -1,27 +1,27 @@
 const Order = require("../models/order-model");
+const Razorpay = require('razorpay');
 
-const buyProduct =  async (req,res)=>{
-    const {username,product} = req.body;
-    const date = new Date()
+const instance = new Razorpay({
+  key_id: process.env.RAZOR_PAY_API_KEY,
+  key_secret: process.env.RAZOR_PAY_API_SECRET,
+});
 
-   
-      product.purchasedDate = date;
+const buyProduct = async (req, res) => {
+  const {  product } = req.body;
   
-    console.log(product);
-   
-    const data = await Order.findOne({username});
-    if(!data){
-       const data = new Order({username:username, orders:[product]})
-       await data.save();
-       console.log("Order Saved");
-    }
-    else{
-        // retrieve it and push items
-      data.orders.push(product)
-      await data.save();
-      console.log("product added");
-       
-    }
+
+
+
+  const options = {
+    amount: Number(product.price.cost) * 100,
+    currency: "INR"
+  }
+
+  const order = await instance.orders.create(options);
+
+  res.status(200).json({ order: order, key: process.env.RAZOR_PAY_API_KEY});
+
+  
 }
 
 module.exports = buyProduct;
