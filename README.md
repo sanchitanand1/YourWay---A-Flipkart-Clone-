@@ -24,7 +24,7 @@
 
 The Flipkart Clone project is a comprehensive e-commerce application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). It aims to replicate the functionality and user experience of the popular e-commerce platform Flipkart, incorporating essential features and technologies for a seamless shopping experience.
 
-Key Features
+## Key Features
 1. User Authentication
 The project employs secure user authentication using JSON Web Tokens (JWT). Users can register, log in, and maintain a personalized shopping experience with their accounts.
 
