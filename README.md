@@ -176,7 +176,7 @@ const ACCESS_SECRET_KEY;
 
 The usage of the Flipkart Clone app involves navigating through its features, making purchases, and experiencing the functionalities inspired by the original Flipkart platform. Here's a guide on how to use the app:
 
-1. User Registration and Login
+### 1.User Registration and Login
 Create an Account:
 
 Visit the registration page.
@@ -187,7 +187,9 @@ Log In:
 If you already have an account, go to the login page.
 Enter your credentials (username/email and password).
 Click on the "Log In" button to access your account.
-2. Explore Products
+
+
+### 2. Explore Products
 Homepage:
 
 Upon login, you'll be directed to the homepage showcasing featured products.
@@ -195,7 +197,9 @@ Explore different categories and products available for purchase.
 Product Details:
 
 Click on a product to view its details, images, and specifications.
-3. Add to Cart and Checkout
+
+
+### 3. Add to Cart and Checkout
 Add to Cart:
 
 From the product details page, click on the "Add to Cart" button.
@@ -207,12 +211,13 @@ Checkout:
 
 Proceed to the checkout page.
 Provide shipping details and choose a payment method.
-4. Payment
+
+### 4. Payment
 Razor Pay Integration:
 The app integrates Razor Pay for secure payment processing.
 Enter your payment details to complete the transaction.
 
-5.Logout:
+### 5. Logout:
 Logout of your account when done using the app.
 Additional Features
 Search Functionality:
