@@ -1,4 +1,4 @@
-### FLIPKART CLONE
+# FLIPKART CLONE
 
 ![image](https://github.com/ArnavAnand10/flipkart_clone/assets/97800361/221cf108-9001-4c28-8129-47161fd2e5fe)
 
@@ -25,57 +25,57 @@
 The Flipkart Clone project is a comprehensive e-commerce application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). It aims to replicate the functionality and user experience of the popular e-commerce platform Flipkart, incorporating essential features and technologies for a seamless shopping experience.
 
 ## Key Features
-1. User Authentication
+### 1. User Authentication
 The project employs secure user authentication using JSON Web Tokens (JWT). Users can register, log in, and maintain a personalized shopping experience with their accounts.
 
-2. Razor Pay Integration
+### 2. Razor Pay Integration
 Seamless payment integration is achieved through Razor Pay, allowing users to make secure transactions for their purchases.
 
-3. Material-UI for Stylish UI Components
+### 3. Material-UI for Stylish UI Components
 The user interface is crafted using Material-UI, providing a modern and responsive design with a rich set of UI components for a visually appealing experience.
 
-4. React Redux for Efficient State Management
+### 4. React Redux for Efficient State Management
 React Redux is employed for efficient state management, ensuring a smooth and predictable flow of data throughout the application.
 
-5. React Router DOM for Navigation
+### 5. React Router DOM for Navigation
 Navigation within the application is facilitated by React Router DOM, enabling users to explore different sections effortlessly.
 
-6. RESTful APIs
+### 6. RESTful APIs
 The backend, powered by Express.js, exposes RESTful APIs for seamless communication between the frontend and backend, handling data requests and updates.
 
-7. Middleware Implementation
+### 7. Middleware Implementation
 Middleware is used for various functionalities, enhancing the application's extensibility and maintaining a clean separation of concerns.
 
-8. Bcrypt for Password Hashing
+### 8. Bcrypt for Password Hashing
 User passwords are securely stored using Bcrypt, adding an extra layer of protection to sensitive user data.
 
 
-## Built With
+# Built With
 
-# Frontend Technologies
-React.js: A powerful JavaScript library for building user interfaces, providing a reactive and component-based structure for the frontend.
+## Frontend Technologies
+### React.js: A powerful JavaScript library for building user interfaces, providing a reactive and component-based structure for the frontend.
 
-Material-UI: A React UI framework that leverages the principles of Google's Material Design, offering a comprehensive set of visually appealing and responsive components.
+### Material-UI: A React UI framework that leverages the principles of Google's Material Design, offering a comprehensive set of visually appealing and responsive components.
 
-React Redux: A state management library for React applications, ensuring efficient handling of state throughout the application.
+### React Redux: A state management library for React applications, ensuring efficient handling of state throughout the application.
 
-React Router DOM: Facilitates seamless navigation between different sections of the application, enhancing the overall user experience.
+### React Router DOM: Facilitates seamless navigation between different sections of the application, enhancing the overall user experience.
 
-# Backend Technologies:
-Node.js: A runtime environment that allows the execution of JavaScript code server-side, providing the foundation for building scalable and efficient backend services.
+## Backend Technologies:
+### Node.js: A runtime environment that allows the execution of JavaScript code server-side, providing the foundation for building scalable and efficient backend services.
 
-Express.js: A minimalist and flexible Node.js web application framework that simplifies the process of building robust and scalable web applications.
+### Express.js: A minimalist and flexible Node.js web application framework that simplifies the process of building robust and scalable web applications.
 
-MongoDB: A NoSQL database that provides a flexible and scalable solution for handling large amounts of data, crucial for storing product information, user details, and more.
+### MongoDB: A NoSQL database that provides a flexible and scalable solution for handling large amounts of data, crucial for storing product information, user details, and more.
 
-Authentication and Security
+### Authentication and Security
 JSON Web Tokens (JWT): Employed for secure user authentication, ensuring that user sessions and interactions are authenticated and authorized.
 
-Bcrypt: Utilized for password hashing, enhancing the security of user credentials by converting passwords into a secure and irreversible format.
+### Bcrypt: Utilized for password hashing, enhancing the security of user credentials by converting passwords into a secure and irreversible format.
 
-Payment Integration
+### Payment Integration
 Razor Pay: Integrated to facilitate seamless and secure payment transactions, providing users with a reliable and efficient payment gateway.
-Middleware
+### Middleware
 Middleware components are strategically implemented to enhance the application's functionality, including logging, authentication checks, and more.
 
 ## Getting Started
