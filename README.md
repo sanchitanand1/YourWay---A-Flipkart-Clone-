@@ -52,7 +52,7 @@ User passwords are securely stored using Bcrypt, adding an extra layer of protec
 
 ## Built With
 
-Frontend Technologies
+# Frontend Technologies
 React.js: A powerful JavaScript library for building user interfaces, providing a reactive and component-based structure for the frontend.
 
 Material-UI: A React UI framework that leverages the principles of Google's Material Design, offering a comprehensive set of visually appealing and responsive components.
@@ -61,7 +61,7 @@ React Redux: A state management library for React applications, ensuring efficie
 
 React Router DOM: Facilitates seamless navigation between different sections of the application, enhancing the overall user experience.
 
-Backend Technologies:
+# Backend Technologies:
 Node.js: A runtime environment that allows the execution of JavaScript code server-side, providing the foundation for building scalable and efficient backend services.
 
 Express.js: A minimalist and flexible Node.js web application framework that simplifies the process of building robust and scalable web applications.
