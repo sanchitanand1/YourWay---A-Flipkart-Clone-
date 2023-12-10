@@ -78,10 +78,12 @@ A NoSQL database that provides a flexible and scalable solution for handling lar
 ### Authentication and Security
 JSON Web Tokens (JWT): Employed for secure user authentication, ensuring that user sessions and interactions are authenticated and authorized.
 
-### Bcrypt: Utilized for password hashing, enhancing the security of user credentials by converting passwords into a secure and irreversible format.
+### Bcrypt:
+Utilized for password hashing, enhancing the security of user credentials by converting passwords into a secure and irreversible format.
 
 ### Payment Integration
 Razor Pay: Integrated to facilitate seamless and secure payment transactions, providing users with a reliable and efficient payment gateway.
+
 ### Middleware
 Middleware components are strategically implemented to enhance the application's functionality, including logging, authentication checks, and more.
 
@@ -104,7 +106,7 @@ Install Dependencies
 Navigate to the project's frontend and backend directories and install the required dependencies:
 
 
-Copy code
+
 # Go to the frontend directory
 `cd flipkart-clone/client`
 `npm install`
