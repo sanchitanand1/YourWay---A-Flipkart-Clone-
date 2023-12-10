@@ -53,20 +53,27 @@ User passwords are securely stored using Bcrypt, adding an extra layer of protec
 # Built With
 
 ## Frontend Technologies
-### React.js: A powerful JavaScript library for building user interfaces, providing a reactive and component-based structure for the frontend.
+### React.js: 
+A powerful JavaScript library for building user interfaces, providing a reactive and component-based structure for the frontend.
 
-### Material-UI: A React UI framework that leverages the principles of Google's Material Design, offering a comprehensive set of visually appealing and responsive components.
+### Material-UI: 
+A React UI framework that leverages the principles of Google's Material Design, offering a comprehensive set of visually appealing and responsive components.
 
-### React Redux: A state management library for React applications, ensuring efficient handling of state throughout the application.
+### React Redux: 
+A state management library for React applications, ensuring efficient handling of state throughout the application.
 
-### React Router DOM: Facilitates seamless navigation between different sections of the application, enhancing the overall user experience.
+### React Router DOM: 
+Facilitates seamless navigation between different sections of the application, enhancing the overall user experience.
 
 ## Backend Technologies:
-### Node.js: A runtime environment that allows the execution of JavaScript code server-side, providing the foundation for building scalable and efficient backend services.
+### Node.js: 
+A runtime environment that allows the execution of JavaScript code server-side, providing the foundation for building scalable and efficient backend services.
 
-### Express.js: A minimalist and flexible Node.js web application framework that simplifies the process of building robust and scalable web applications.
+### Express.js: 
+A minimalist and flexible Node.js web application framework that simplifies the process of building robust and scalable web applications.
 
-### MongoDB: A NoSQL database that provides a flexible and scalable solution for handling large amounts of data, crucial for storing product information, user details, and more.
+### MongoDB: 
+A NoSQL database that provides a flexible and scalable solution for handling large amounts of data, crucial for storing product information, user details, and more.
 
 ### Authentication and Security
 JSON Web Tokens (JWT): Employed for secure user authentication, ensuring that user sessions and interactions are authenticated and authorized.
