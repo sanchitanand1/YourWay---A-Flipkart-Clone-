@@ -1,4 +1,3 @@
-
 import Banner from "./Carousel"
 import ProductBar from "./ProductBar"
 import ProductContainer from "../DefaultProducts/Container";

@@ -1,4 +1,4 @@
-
+import React from "react";
 
 export const ProductCard = ({props}) => {
     props.title.longTitle = props.title.longTitle.slice(0,18)+"...";

@@ -3,6 +3,7 @@ import thunkMiddleware from 'redux-thunk';
 import {createStore, combineReducers, applyMiddleware} from "redux"
 import { composeWithDevTools } from "redux-devtools-extension";
 import {cartReducer} from "../Redux/Reducers/cartReducer"
+import { thunk } from "redux-thunk";
 
 const reducer = combineReducers({
     getProducts:getProductsReducer,

@@ -3,6 +3,7 @@ import { addEllipsis } from "../../utils/commonUtils"
 import { useDispatch } from "react-redux";
 import { addToCart, deleteFromCart } from "../../Redux/Actions/cartActions";
 import { useEffect, useState } from "react";
+import React from "react";
 
 export const CartItem = ({ item }) => {
     

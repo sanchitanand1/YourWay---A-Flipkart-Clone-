@@ -6,6 +6,7 @@ import { Button, Grid, Table, TableBody, TableCell, TableRow } from "@mui/materi
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import React from "react";
 
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../Redux/Actions/cartActions";
