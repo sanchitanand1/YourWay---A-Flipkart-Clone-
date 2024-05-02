@@ -66,93 +66,95 @@ export const DetailsPage = () => {
     const buyProduct = async () => {
 
         if (!localStorage.getItem("userName")) {
-            navigator("/login")
+            await navigator("/login")
         }
-
-        try {
-            const config = {
-                headers: {
-                    "content-type": "application/json",
+        else {
+            try {
+                const config = {
+                    headers: {
+                        "content-type": "application/json",
+                    }
                 }
-            }
 
-            const orderData = {
-                username: userName,
-                product: product,
+                const orderData = {
+                    username: userName,
+                    product: product,
 
-            }
+                }
 
-            const { data: { key } } = await axios.get("http://localhost:8080/getKey");
+                const { data: { key } } = await axios.get("http://localhost:8080/getKey");
 
-            const { data } = await axios.post("http://localhost:8080/buyProduct", orderData, config);
-            const order = data.order;
-
+                const { data } = await axios.post("http://localhost:8080/buyProduct", orderData, config);
+                const order = data.order;
 
 
-            var options = {
-                "key": key, // Enter the Key ID generated from the Dashboard
-                "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-                "currency": "INR",
-                "name": "Arnav Ridham DEV",
-                "description": "Flipkart Clone Test Transaction",
 
-                "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-                "handler": async function (response) {
+                var options = {
+                    "key": key, // Enter the Key ID generated from the Dashboard
+                    "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                    "currency": "INR",
+                    "name": "Sanchit DEV",
+                    "description": "YourDeal Test Transaction",
 
-                    const config = {
-                        headers: {
-                            "content-type": "application/json"
+                    "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                    "handler": async function (response) {
+
+                        const config = {
+                            headers: {
+                                "content-type": "application/json"
+                            }
                         }
+                        const razorpay_payment_id = (response.razorpay_payment_id);
+                        const razorpay_order_id = (response.razorpay_order_id);
+                        const razorpay_signature = (response.razorpay_signature)
+                        try {
+                            const data = await axios.post("http://localhost:8080/paymentVerification", {
+                                razorpay_order_id,
+                                razorpay_payment_id,
+                                razorpay_signature,
+                                product,
+                                userName,
+                            }, config)
+
+
+                            navigator("/orders");
+
+
+                        }
+                        catch (e) {
+
+                        }
+
+
+                    },
+                    "prefill": {
+                        "name": "Gaurav Kumar",
+                        "email": "gaurav.kumar@example.com",
+                        "contact": "9000090000"
+                    },
+                    "notes": {
+                        "address": "Razorpay Corporate Office"
+                    },
+                    "theme": {
+                        "color": "#3399cc"
                     }
-                    const razorpay_payment_id = (response.razorpay_payment_id);
-                    const razorpay_order_id = (response.razorpay_order_id);
-                    const razorpay_signature = (response.razorpay_signature)
-                    try {
-                        const data = await axios.post("http://localhost:8080/paymentVerification", {
-                            razorpay_order_id,
-                            razorpay_payment_id,
-                            razorpay_signature,
-                            product,
-                            userName,
-                        }, config)
-                        
-                        
-                        navigator("/orders");
+                };
+
+                const razor = new window.Razorpay(options);
+                razor.on('payment.failed', function (response) {
+                    alert("payment failed, try again")
+                });
+                razor.open();
 
 
-                    }
-                    catch (e) {
-
-                    }
+            }
 
 
-                },
-                "prefill": {
-                    "name": "Gaurav Kumar",
-                    "email": "gaurav.kumar@example.com",
-                    "contact": "9000090000"
-                },
-                "notes": {
-                    "address": "Razorpay Corporate Office"
-                },
-                "theme": {
-                    "color": "#3399cc"
-                }
-            };
-
-            const razor = new window.Razorpay(options);
-            razor.on('payment.failed', function (response) {
-                alert("payment failed, try again")
-            });
-            razor.open();
-           
-
+            catch (e) {
+                console.log(e);
+            }
         }
 
-
-        catch (e) {
-            console.log(e);
-        }
     }
     return (
 
@@ -212,10 +214,10 @@ export const DetailsPage = () => {
                         }}>
 
                             <p>59,167 Ratings & 6,869 Reviews</p>
-                            <img style={{
+                            {/* <img style={{
 
                                 height: "25px"
-                            }} src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png" alt="" />
+                            }} src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png" alt="" /> */}
 
                         </div>
 

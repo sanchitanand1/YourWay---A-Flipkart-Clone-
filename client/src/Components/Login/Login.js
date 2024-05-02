@@ -105,12 +105,12 @@ const LoginSignup = () => {
                             <TextField id="standard-basic" type="password" onChange={(e) => { onChangeValues(e) }} name="password" label="Enter Password" variant="standard" />
                             <br /><br />
 
-                            <p style={{ fontSize: "12px" }}> By continuing, you agree to Flipkart's <span style={{ color: "#2874F0" }}> Terms of Use  </span> and  <span style={{ color: "#2874F0" }}>Privacy Policy </span>  .</p>
+                            <p style={{ fontSize: "12px" }}> By continuing, you agree to YourDeal's <span style={{ color: "#2874F0" }}> Terms of Use  </span> and  <span style={{ color: "#2874F0" }}>Privacy Policy </span>  .</p>
                             <Button style={{ backgroundColor: "#FB641B" }} onClick={onLoginClick} variant="contained">Login</Button>
                         </div>
 
 
-                        <p onClick={() => { setShowLogin(false) }} style={{ color: "#2874F0", fontWeight: "500", fontSize: "14px", textAlign: 'center', cursor: "pointer" }}>New to Flipkart? Create an account</p>
+                        <p onClick={() => { setShowLogin(false) }} style={{ color: "#2874F0", fontWeight: "500", fontSize: "14px", textAlign: 'center', cursor: "pointer" }}>New to YourDeal? Create an account</p>
 
                     </div>
 
@@ -306,7 +306,7 @@ const LoginSignup = () => {
 
                             <br /><br />
 
-                            <p style={{ fontSize: "12px" }}> By continuing, you agree to Flipkart's <span style={{ color: "#2874F0" }}> Terms of Use  </span> and  <span style={{ color: "#2874F0" }}>Privacy Policy </span>  .</p>
+                            <p style={{ fontSize: "12px" }}> By continuing, you agree to YourDeal's <span style={{ color: "#2874F0" }}> Terms of Use  </span> and  <span style={{ color: "#2874F0" }}>Privacy Policy </span>  .</p>
                             <Button style={{ backgroundColor: "#FB641B" }} onClick={onFormSubmit} variant="contained">
                                 {loading ? <CircularProgress /> : "Continue"}
 
