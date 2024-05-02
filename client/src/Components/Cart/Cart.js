@@ -20,50 +20,115 @@ export const Cart = () => {
 
 
     const cartItems = useSelector(state => state.cart);
-    
-    for(var i = 0 ; i<cartItems.length ;i++){
+
+    for (var i = 0; i < cartItems.length; i++) {
         sum = sum + cartItems[i].price.mrp;
         discount = discount + (cartItems[i].price.mrp - cartItems[i].price.cost);
-       
+
 
     }
-    amount = sum-discount;
+    amount = sum - discount;
 
-    
-  async function placeOrder(){
 
-    if(!localStorage.getItem("userName")){
-        navigator("/login")
-    }
+    async function placeOrder() {
 
-        try{
-            const config = {
-                headers:{
-                    "content-type":"application/json",
-                },
-            }
-
-            const data = {
-                cartItems,
-                username: localStorage.getItem("userName")
-            }
-            const response = await axios.post("http://localhost:8080/placeOrder",data,config);
-            console.log(response.data.msg);
-           
-            navigator("/orders")
-            window.location.reload();
-          
-
-            
+        if (!localStorage.getItem("userName")) {
            
 
-        }
-        catch(e){
-            console.log(`error ${e}`);
+            navigator("/login")
+            window.location.reload()
+        } else {
+
+            const userName = localStorage.getItem("userName")
+
+            try {
+                const config = {
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                }
+
+                const orders = {
+                    cartItems,
+                    username: localStorage.getItem("userName")
+                }
+                const { data: { key } } = await axios.get("http://localhost:8080/getKey");
+
+                const { data } = await axios.post("http://localhost:8080/placeOrder", {data:orders}, config);
+
+                const order = data.order;
+
+                var options = {
+                    "key": key, // Enter the Key ID generated from the Dashboard
+                    "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                    "currency": "INR",
+                    "name": "Arnav Ridham DEV",
+                    "description": "Flipkart Clone Test Transaction",
+
+                    "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                    "handler": async function (response) {
+
+                        const config = {
+                            headers: {
+                                "content-type": "application/json"
+                            }
+                        }
+                        const razorpay_payment_id = (response.razorpay_payment_id);
+                        const razorpay_order_id = (response.razorpay_order_id);
+                        const razorpay_signature = (response.razorpay_signature)
+
+                        try {
+                            const data = await axios.post("http://localhost:8080/cartpaymentVerification", {
+                                razorpay_order_id,
+                                razorpay_payment_id,
+                                razorpay_signature,
+                                cartItems,
+                                userName,
+                            }, config)
+
+                            navigator("/orders");
+                            window.location.reload()
+
+
+                        }
+                        catch (e) {
+                            console.log(e);
+                        }
+
+
+                    },
+                    "prefill": {
+                        "name": "Gaurav Kumar",
+                        "email": "gaurav.kumar@example.com",
+                        "contact": "9000090000"
+                    },
+                    "notes": {
+                        "address": "Razorpay Corporate Office"
+                    },
+                    "theme": {
+                        "color": "#3399cc"
+                    }
+                };
+
+
+                const razor = new window.Razorpay(options);
+                razor.on('payment.failed', function (response) {
+                    alert("payment failed, try again")
+                });
+                razor.open();
+
+
+
+
+
+
+            }
+            catch (e) {
+                console.log(`error ${e}`);
+            }
         }
     }
-   
-  
+
     return (
         <>
 
@@ -87,32 +152,32 @@ export const Cart = () => {
                             </div>
 
                             <div className="place-order-container" >
-                                <Button 
-                                 
-                                 onClick={placeOrder}
+                                <Button
 
-                                style={{
-                                    textTransform:"capitalize"
-                                }} disableElevation variant="contained">Place Order</Button>
+                                    onClick={placeOrder}
+
+                                    style={{
+                                        textTransform: "capitalize"
+                                    }} disableElevation variant="contained">Place Order</Button>
                             </div>
 
                         </Grid >
 
                         <Grid item lg={3} md={3} sm={12} xs={12}>
-                            <div className="bill-container" style={{textAlign:"left"}}>
+                            <div className="bill-container" style={{ textAlign: "left" }}>
 
                                 <Table>
                                     <TableHead >
                                         <p> PRICE DETAILS</p>
                                     </TableHead>
-                                    
+
 
                                     <TableRow >
                                         <TableCell>
                                             Price ({cartItems.length} item)
                                         </TableCell>
                                         <TableCell>
-                                        &#8377;{sum}
+                                            &#8377;{sum}
                                         </TableCell>
                                     </TableRow>
 
@@ -120,43 +185,43 @@ export const Cart = () => {
                                         <TableCell>
                                             Discount
                                         </TableCell>
-                                        <TableCell style={{color:"green",fontWeight:"500"}}>
+                                        <TableCell style={{ color: "green", fontWeight: "500" }}>
                                             - &#8377;{discount}
                                         </TableCell>
                                     </TableRow>
                                     <TableRow>
                                         <TableCell>
-                                                    Delivery Charges
+                                            Delivery Charges
                                         </TableCell>
-                                        <TableCell style={{color:"green",fontWeight:"500"   }}>
+                                        <TableCell style={{ color: "green", fontWeight: "500" }}>
                                             FREE
                                         </TableCell>
                                     </TableRow>
                                     <TableRow >
-                                        <TableCell style={{color:"black",fontWeight:"bolder",fontSize:"16px"}}>
-                                           Total Amount
+                                        <TableCell style={{ color: "black", fontWeight: "bolder", fontSize: "16px" }}>
+                                            Total Amount
                                         </TableCell>
-                                        <TableCell  style={{color:"black",fontWeight:"bolder",fontSize:"16px"}}>
-                                        &#8377;{amount}
+                                        <TableCell style={{ color: "black", fontWeight: "bolder", fontSize: "16px" }}>
+                                            &#8377;{amount}
                                         </TableCell>
                                     </TableRow>
 
 
                                 </Table>
-                                <p style={{color:"green",fontFamily:"inter",fontWeight:"500"}}>You will save {discount} on this order</p>
-                            
-                                <Button  style={{margin:"15px 0px"}} disableElevation variant="contained">Place Order</Button>
+                                <p style={{ color: "green", fontFamily: "inter", fontWeight: "500" }}>You will save {discount} on this order</p>
+
+                                <Button style={{ margin: "15px 0px" }} disableElevation variant="contained">Place Order</Button>
 
                             </div>
-                          
-                           
+
+
                         </Grid>
 
 
 
                     </Grid>
                     :
-                <EmptyCart />
+                    <EmptyCart />
 
             }
         </>

@@ -34,11 +34,29 @@ const Header = () => {
 
             <Toolbar style={{ backgroundColor: "white", height: "70px", flex: "1" }}>
                 <div className="main-right-container" >
-                    <img onClick={()=>{
+                <div style={{
+                    display:"flex",
+                    flexDirection:"column"
+                }}>
+                    <h4 onClick={()=>{
                         navigate("/")
                     }}  style={{
                         cursor: "pointer",
-                    }}  src={url} alt="logo" />
+                        color:"black",
+                        margin:"0",
+                        padding:"0"
+                    }}  > 
+                    YourWay
+                    </h4>
+                    <p style={
+                        {margin:"4px 0",
+                        padding:"0",
+                            color:"black",
+                            fontSize:"8px",
+                            fontWeight:"bolder"
+                        }
+                    }>Get at your price</p>
+                    </div>
                     <Search />
                 </div>
 

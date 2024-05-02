@@ -32,11 +32,7 @@ export const CartItem = ({ item }) => {
 
 
 
-            <p style={{
-                color: "#878787",
-                fontSize: "14px"
-            }}>Seller:RetailNet <img style={{ width: "55px" }} src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png" alt="" /> </p>
-
+           
 
             <div style={{
                 display: "flex",
