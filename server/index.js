@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const Connection = require('./Database/Connection');
 const router = require('./routes/routes');
+const defaultData = require('./default');
 
 dotenv.config();
 

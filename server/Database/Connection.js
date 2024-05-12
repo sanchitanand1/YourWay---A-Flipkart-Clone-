@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
     try{
        
-     const connect = await mongoose.connect("mongodb+srv://ridhamanand31:Lionelmessi10@flipkartclone.kjph07z.mongodb.net/?retryWrites=true&w=majority")
+     const connect = await mongoose.connect("mongodb+srv://anandsanchit198:1234@cluster0.1ba49ve.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
      console.log("DataBase Connected Successfully")
     }
     catch(e){
