@@ -1,25 +1,6 @@
 # FLIPKART CLONE
 
-![image](https://github.com/ArnavAnand10/flipkart_clone/assets/97800361/221cf108-9001-4c28-8129-47161fd2e5fe)
-
-
-## Table Of Contents
-
-* [About the Project](#about-the-project)
-* [Built With](#built-with)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [License](#license)
-* [Authors](#authors)
-* [Acknowledgements](#acknowledgements)
-
-## About The Project
-
-![image](https://github.com/ArnavAnand10/flipkart_clone/assets/97800361/3a4eabde-29c6-4b49-b13a-ce7db6d50583)
+## About The Projec
 
 
 The Flipkart Clone project is a comprehensive e-commerce application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). It aims to replicate the functionality and user experience of the popular e-commerce platform Flipkart, incorporating essential features and technologies for a seamless shopping experience.
@@ -99,24 +80,6 @@ MongoDB: Install MongoDB to set up the database for the project.
 Clone the Repository
 Open your terminal or command prompt and run the following command to clone the Flipkart Clone repository:
 
-
-Copy code
-`[git clone https://github.com/ArnavAnand10/flipkart_clone.git`
-Install Dependencies
-Navigate to the project's frontend and backend directories and install the required dependencies:
-
-
-
-# Go to the frontend directory
-`cd flipkart-clone/client`
-`npm install`
-
-# Go to the backend directory
-`cd ../server`
-`npm install`
-Configure the Project
-Configure MongoDB:
-
 Set up a MongoDB database.
 Update the connection string in server/.env with your MongoDB connection details.
 Configure Razor Pay:
@@ -124,53 +87,6 @@ Configure Razor Pay:
 Obtain API keys from Razor Pay.
 Update the API keys in the appropriate files in the project.
 JWT Secret:
-
-Set a strong secret key for JWT in server/.env.
-Start the Application
-Start the Backend Server:
-
-
-Copy code
-# Go to the backend directory
-`cd server`
-`npm start`
-Start the Frontend Application:
-
-
-Copy code
-# Go to the frontend directory
-`cd client`
-`npm start`
-
-Visit http://localhost:3000 in your web browser to access the Flipkart Clone application.
-
-
-
-### Installation
-
-1. Get a free API Key at Razor Pay.
-
-2. Clone the repo
-
-```sh
-git clone https://github.com/ArnavAnand10/flipkart_clone.git
-```
-
-3. Install NPM packages
-
-```sh
-npm install
-```
-
-4. Enter your API in `.env`
-
-```JS
-const RAZOR_PAY_API_KEY = 'ENTER YOUR API';
-const RAZOR_PAY_API_SECRET;
-const REFRESH_SECRET_KEY;
-const ACCESS_SECRET_KEY;
-
-```
 
 ## Usage
 
@@ -219,55 +135,7 @@ Enter your payment details to complete the transaction.
 
 ### 5. Logout:
 Logout of your account when done using the app.
-Additional Features
-Search Functionality:
 
-Utilize the search functionality to find specific products.
-Responsive Design:
-
-
-
-
-## Contributing
-All contributions are welcome.
-
-
-
-
-### Creating A Pull Request
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-Copyright (c) 2023 ArnavAnand10
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-## Authors
-
-* **Arnav Anand** - *FY at VIT Pune* - [Arnav Anand](https://github.com/ArnavAnand10) - **
 
 
 
