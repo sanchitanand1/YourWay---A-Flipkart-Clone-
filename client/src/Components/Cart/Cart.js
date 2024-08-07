@@ -13,24 +13,32 @@ import React, { useState } from "react";
 
 export const Cart = () => {
     const navigator = useNavigate();
-    var sum = 0;
-    var discount = 0;
-    var amount = 0;
-
     const cartItems = useSelector(state => state.cart);
 
-    for (var i = 0; i < cartItems.length; i++) {
-        sum = sum + cartItems[i].price.mrp;
-        discount = discount + (cartItems[i].price.mrp - cartItems[i].price.cost);
-    }
-    amount = sum - discount;
+    const calculateTotals = (items) => {
+        let sum = 0;
+        let discount = 0;
+        let amount = 0;
+
+        for (let i = 0; i < items.length; i++) {
+            sum += items[i].price.mrp;
+            discount += (items[i].price.mrp - items[i].price.cost);
+        }
+        amount = sum - discount;
+
+        return { sum, discount, amount };
+    };
+
+    const totals = calculateTotals(cartItems);
+    let { sum, discount, amount } = totals;
 
     const [bargainPrice, setBargainPrice] = useState('');
     const [openDialog, setOpenDialog] = useState(false);
     const [approvedBargain, setApprovedBargain] = useState(false);
 
     const handleBargain = () => {
-        if (Number(bargainPrice) <= amount && Number(bargainPrice) > 0) {
+        const minBargainPrice = 0.85 * amount; // 85% of the total amount
+        if (Number(bargainPrice) >= minBargainPrice && Number(bargainPrice) > 0) {
             setApprovedBargain(true);
             setOpenDialog(true);
             amount = Number(bargainPrice);
@@ -58,7 +66,7 @@ export const Cart = () => {
                                 <h3>My Cart ({cartItems.length})</h3>
                             </div>
                             <div className="carts-item-container">
-                                {cartItems.map(item => <CartItem item={item} key={Math.random()} />)}
+                                {cartItems.map(item => <CartItem item={item} key={item.id} />)}
                             </div>
                             <div className="bargain-container">
                                 <TextField
@@ -104,27 +112,24 @@ export const Cart = () => {
                         </Grid>
                     </Grid>
                     :
-          <EmptyCart />
-        }
-        <Dialog
-            open={openDialog}
-            onClose={handleClose}
-        >
-            <DialogTitle>{"Bargain Result"}</DialogTitle>
-            <DialogContent>
-                <DialogContentText>
-                {approvedBargain ? `Your Bargain price of ₹${bargainPrice} has been approved!` : "Bargain price not approved. Try a higher price."}
-
-                </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-                <Button onClick={handleClose} color="primary" autoFocus>
-                    Close
-                </Button>
-            </DialogActions>
-        </Dialog>
-    </>
-)
+                    <EmptyCart />
+            }
+            <Dialog
+                open={openDialog}
+                onClose={handleClose}
+            >
+                <DialogTitle>{"Bargain Result"}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        {approvedBargain ? `Your Bargain price of ₹${bargainPrice} has been approved!` : "Bargain price not approved. Try a higher price."}
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary" autoFocus>
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
+        </>
+    )
 }
-
-
